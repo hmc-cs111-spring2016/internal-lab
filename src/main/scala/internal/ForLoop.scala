@@ -11,7 +11,13 @@ package internal
 
 object ForLoop extends App {
 
-  // define the new control-flow structure here 
+  
+  def for_loop(assign: Unit)(exp: =>Boolean)(incr: =>Unit)(code: =>Unit){
+    while (exp){
+      code
+      incr
+    }
+  }
   
   var i = 0;
   for_loop(i = 0)(i < 10)(i += 2) {
