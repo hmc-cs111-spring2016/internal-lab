@@ -11,7 +11,13 @@ package internal
 
 object ForLoop extends App {
 
-  // define the new control-flow structure here 
+  def for_loop(start: Unit)(cond: => Boolean)(update: =>Unit)(function: => Unit): Unit = {
+  	if(cond) {
+  		start
+  		function
+  		for_loop(update)(cond)(update)(function)
+  	}
+  }
   
   var i = 0;
   for_loop(i = 0)(i < 10)(i += 2) {
