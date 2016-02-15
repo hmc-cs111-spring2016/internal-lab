@@ -11,9 +11,14 @@ package internal
 object LoopUntil extends App {
 
   // define the new control-flow structure here
-
-  var i = 0
+  def loop_until(condition: =>Boolean)(function: =>Unit): Unit = {
+    if (!condition) {
+      function
+      loop_until(condition)(function)
+    }
+  }
   
+  var i = 0
   loop_until (i > 9) {
       if ( (i % 2) == 0 )
           println(i)
@@ -21,3 +26,4 @@ object LoopUntil extends App {
   }
 
 }
+
