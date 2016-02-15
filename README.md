@@ -58,30 +58,31 @@ appearing on a separate line).
 
 Put your implementation in the file `/src/main/scala/internal/LoopUntil.scala`.
 
-## Part 2: `repeat` … `until`
-Implement a control-flow structure called `repeat` … `until` that can be used 
-like so:
+## Part 2: `for_loop`
+Implement a control-flow structure called `for_loop` that can be used like so:
 
 ```
-var i = 0
-repeat {
-   if ( (i % 2) == 0 )
-      println(i)
-   i += 1
-} until (i > 9)
+var i = 0;
+for_loop(i = 0)(i < 10)(i += 2) {
+  println(i);
+}
 ```
 
-The `repeat` … `until` control structure first executes its body. Then it checks
-its condition. If the condition is *false*, it executes the body again. It then
-checks the condition again and continues in this fashion until the condition
-becomes true.
+The `for_loop` control structure first performs the initialization (`i=0`).
+Then, it checks its condition (`i < 10`). If the condition is true, it executes
+the body. Then it perfoms the increment (`i += 2`). It then checks the condition
+again. If the condition is still true, it again executes the body and continues
+in this fashion until the condition becomes false.
 
-In the case of the example above, the body of the `repeat` … `until` structure
-should execute 10 times and print the numbers `0`, `2`, `4`, `6`, `8` (with each
-number appearing on a separate line).
+In the case of the example above, the body of the `for_loop` structure should
+execute 10 times and print the numbers `0`, `2`, `4`, `6`, `8` (with each number
+appearing on a separate line).
 
-Put your implementation in the file 
-`/src/main/scala/internal/RepeatUntil.scala`.
+Note that, unfortunately, we don't have a good way to include the variable
+definition as part of the for loop. The user has to declare the variable outside
+the for loop, then (re-)initialize it as part of the for loop.
+
+Put your implementation in the file `/src/main/scala/internal/ForLoop.scala`.
 
 ## Part 3: `while_c` and `continue`
 Implement control-flow structures called `while_c` and `continue` that can be 
@@ -117,6 +118,31 @@ appearing on a separate line).
 
 Put your implementation in the file 
 `/src/main/scala/internal/WhileContinue.scala`.
+
+## Part 4: `repeat` … `until`
+Implement a control-flow structure called `repeat` … `until` that can be used 
+like so:
+
+```
+var i = 0
+repeat {
+   if ( (i % 2) == 0 )
+      println(i)
+   i += 1
+} until (i > 9)
+```
+
+The `repeat` … `until` control structure first executes its body. Then it checks
+its condition. If the condition is *false*, it executes the body again. It then
+checks the condition again and continues in this fashion until the condition
+becomes true.
+
+In the case of the example above, the body of the `repeat` … `until` structure
+should execute 10 times and print the numbers `0`, `2`, `4`, `6`, `8` (with each
+number appearing on a separate line).
+
+Put your implementation in the file 
+`/src/main/scala/internal/RepeatUntil.scala`.
 
 ## Bonus: Summations
 If you finish the first three parts of the lab, consider taking on this
