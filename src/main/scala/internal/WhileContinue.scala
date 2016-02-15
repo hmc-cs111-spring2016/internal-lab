@@ -13,6 +13,14 @@ object WhileContinue extends App {
 
   // define the new control-flow structures here
 
+  def while_c (bool: =>Boolean) (body: =>Unit) {
+    
+  }
+  
+  def continue {
+    
+  }
+  
   var i = -1
 
   while_c (i < 9) {
