@@ -9,10 +9,21 @@ package internal
  * 8
  */
 
+class repeat(code: =>Unit) {
+  def until(cond: =>Boolean):Unit = {
+    code
+    if(!cond) {
+      until(cond)
+    }
+  }
+}
+
+
 object RepeatUntil extends App {
   
   // define the new control-flow structure here
-
+  
+  
   var i = 0
   repeat  {
       if ( (i % 2) == 0 )
