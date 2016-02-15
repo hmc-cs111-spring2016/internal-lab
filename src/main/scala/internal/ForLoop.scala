@@ -17,5 +17,13 @@ object ForLoop extends App {
   for_loop(i = 0)(i < 10)(i += 2) {
     println(i);
   }
+  
+  def for_loop(init: Unit)(condition: =>Boolean)(inc: =>Unit)(code: =>Unit) = {
+      while(condition){
+          code
+          inc
+      }
+  }
 
+  
 }

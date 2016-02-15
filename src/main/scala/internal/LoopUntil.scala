@@ -20,4 +20,11 @@ object LoopUntil extends App {
       i += 1
   }
 
+  def loop_until (check: =>Boolean) (code: =>Unit) = {
+      while(!check){
+          code
+      }
+  }
+
+  
 }

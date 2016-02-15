@@ -20,6 +20,14 @@ object WhileContinue extends App {
       if ( (i % 2) != 0 )
           continue
       println(i)
-  }        
+  }    
+  
+  def while_c (condition: =>Boolean)(code: =>Unit) = {
+      while(condition){
+          code
+      }
+  }
+  
+  def continue = {}
 
 }
