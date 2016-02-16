@@ -11,11 +11,19 @@ package internal
 
 object WhileContinue extends App {
 
-  // define the new control-flow structures here
-
-  def while_c (cond: =>Boolean) (body: =>Unit) = {
-    while (cond) body // check for continue while going through body, then break
+  def while_c (cond: =>Boolean) (body: =>Unit): Unit = {
+    if (cond) {
+      try {
+        body
+        while_c (cond)(body)
+      } catch { 
+        case e: Exception => while_c (cond)(body) // restart the loop
+      }
+    }
   }
+  
+  // exception when we get to continue
+  def continue = throw new Exception("No")
   
   var i = -1
 
